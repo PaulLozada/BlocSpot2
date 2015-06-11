@@ -33,6 +33,21 @@ class ViewController: UIViewController,UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        
+        let searchRequest = MKLocalSearchRequest()
+        searchRequest.naturalLanguageQuery = searchResult
+        
+        let localSearch = MKLocalSearch(request: searchRequest)
+        localSearch.startWithCompletionHandler { (response, error) -> Void in
+           
+            if response != nil{
+                print(response)
+            } else{
+                print("error has occured")
+            }
+        }
+        
+        
         print(searchResult!)
         print("Search Button Clicked")
     }
@@ -54,7 +69,9 @@ class ViewController: UIViewController,UISearchBarDelegate {
     @IBAction func pressedSegmentedControl(sender: UISegmentedControl) {
         
         
-    
+    // Change with switch statement soon
+        
+        
         if segmented.selectedSegmentIndex == 0 {
         mainMapView.mapType = MKMapType.Standard
         }
