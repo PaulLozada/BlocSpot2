@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="15A178w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -28,6 +29,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Tld-jD-RsG"/>
                                 </connections>
                             </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tq1-j4-TPW">
+                                <rect key="frame" x="31" y="542" width="212" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="pressedSegmentedControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="HNE-Lk-e2F"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -38,11 +51,15 @@
                             <constraint firstItem="wdH-gO-gzS" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="8Wd-pG-msr"/>
                             <constraint firstItem="4ge-y4-UrU" firstAttribute="leading" secondItem="wdH-gO-gzS" secondAttribute="leading" id="JfE-Uf-F7x"/>
                             <constraint firstItem="wdH-gO-gzS" firstAttribute="top" secondItem="4ge-y4-UrU" secondAttribute="bottom" id="Jh2-0o-wJX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tq1-j4-TPW" secondAttribute="bottom" constant="30" id="efs-oY-xQK"/>
                             <constraint firstItem="4ge-y4-UrU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="gIV-0b-LR0"/>
+                            <constraint firstItem="tq1-j4-TPW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="wka-8T-uda"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mainMapView" destination="wdH-gO-gzS" id="VLq-Ad-DgD"/>
                         <outlet property="searchBar" destination="4ge-y4-UrU" id="ijA-oX-emh"/>
+                        <outlet property="segmented" destination="tq1-j4-TPW" id="pei-R8-dwx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
