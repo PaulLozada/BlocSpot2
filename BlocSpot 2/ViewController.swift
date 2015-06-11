@@ -8,10 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UISearchBarDelegate {
 
+    
+    //MARK: UISearchBarDelegate
+    
+    
+   
+    
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.placeholder = "Type Search here"
+        searchBar.prompt = "BlocSpot"
+        searchBar.tintColor = UIColor(red: 0.175, green: 0.727, blue: 0.831, alpha: 1)
+        searchBar.delegate = self
+        searchBar.showsBookmarkButton = true
+        
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

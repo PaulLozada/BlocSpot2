@@ -15,6 +15,7 @@
 		3321CB6F1B29D28800A3B912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3321CB6D1B29D28800A3B912 /* LaunchScreen.storyboard */; };
 		3321CB7A1B29D28800A3B912 /* BlocSpot_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321CB791B29D28800A3B912 /* BlocSpot_2Tests.swift */; };
 		3321CB851B29D28800A3B912 /* BlocSpot_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321CB841B29D28800A3B912 /* BlocSpot_2UITests.swift */; };
+		3321CB931B29D5F100A3B912 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321CB921B29D5F100A3B912 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3321CB801B29D28800A3B912 /* BlocSpot 2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BlocSpot 2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3321CB841B29D28800A3B912 /* BlocSpot_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocSpot_2UITests.swift; sourceTree = "<group>"; };
 		3321CB861B29D28800A3B912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3321CB921B29D5F100A3B912 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3321CB931B29D5F100A3B912 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +82,7 @@
 		3321CB551B29D28800A3B912 = {
 			isa = PBXGroup;
 			children = (
+				3321CB921B29D5F100A3B912 /* MapKit.framework */,
 				3321CB601B29D28800A3B912 /* BlocSpot 2 */,
 				3321CB781B29D28800A3B912 /* BlocSpot 2Tests */,
 				3321CB831B29D28800A3B912 /* BlocSpot 2UITests */,
@@ -195,6 +199,11 @@
 				TargetAttributes = {
 					3321CB5D1B29D28800A3B912 = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3321CB741B29D28800A3B912 = {
 						CreatedOnToolsVersion = 7.0;
