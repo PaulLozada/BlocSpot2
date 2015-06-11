@@ -18,6 +18,9 @@ class ViewController: UIViewController,UISearchBarDelegate {
     
     var searchResult : String? = nil
     
+    let searchRequest = MKLocalSearchRequest()
+
+    
     
     //MARK: UISearchBarDelegate
     
@@ -27,25 +30,35 @@ class ViewController: UIViewController,UISearchBarDelegate {
    
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
+        
         searchBar.endEditing(true)
+        
         print("Cancelled Search")
         
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
-        let searchRequest = MKLocalSearchRequest()
+        let localSearch = MKLocalSearch(request: searchRequest)
         searchRequest.naturalLanguageQuery = searchResult
         
-        let localSearch = MKLocalSearch(request: searchRequest)
         localSearch.startWithCompletionHandler { (response, error) -> Void in
-           
+            
             if response != nil{
                 print(response)
             } else{
-                print("error has occured")
+                
+                let alert = UIAlertController(title: "No Results Found", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+                
+                let okay = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+                
+                alert.addAction(okay)
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
+        
         
         
         print(searchResult!)
@@ -53,7 +66,7 @@ class ViewController: UIViewController,UISearchBarDelegate {
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        
+    
         searchResult = searchText
     }
     

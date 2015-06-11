@@ -11,11 +11,11 @@
 		3321CB641B29D28800A3B912 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321CB631B29D28800A3B912 /* ViewController.swift */; };
 		3321CB671B29D28800A3B912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3321CB651B29D28800A3B912 /* Main.storyboard */; };
 		3321CB6A1B29D28800A3B912 /* BlocSpot_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3321CB681B29D28800A3B912 /* BlocSpot_2.xcdatamodeld */; };
-		3321CB6C1B29D28800A3B912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3321CB6B1B29D28800A3B912 /* Assets.xcassets */; };
 		3321CB6F1B29D28800A3B912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3321CB6D1B29D28800A3B912 /* LaunchScreen.storyboard */; };
 		3321CB7A1B29D28800A3B912 /* BlocSpot_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321CB791B29D28800A3B912 /* BlocSpot_2Tests.swift */; };
 		3321CB851B29D28800A3B912 /* BlocSpot_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3321CB841B29D28800A3B912 /* BlocSpot_2UITests.swift */; };
 		3321CB931B29D5F100A3B912 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321CB921B29D5F100A3B912 /* MapKit.framework */; };
+		3374704F1B2A25CD0007D2C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3374704E1B2A25CD0007D2C4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,6 @@
 		3321CB631B29D28800A3B912 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3321CB661B29D28800A3B912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3321CB691B29D28800A3B912 /* BlocSpot_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlocSpot_2.xcdatamodel; sourceTree = "<group>"; };
-		3321CB6B1B29D28800A3B912 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3321CB6E1B29D28800A3B912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3321CB701B29D28800A3B912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3321CB751B29D28800A3B912 /* BlocSpot 2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BlocSpot 2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +50,7 @@
 		3321CB841B29D28800A3B912 /* BlocSpot_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocSpot_2UITests.swift; sourceTree = "<group>"; };
 		3321CB861B29D28800A3B912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3321CB921B29D5F100A3B912 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3374704E1B2A25CD0007D2C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 				3321CB611B29D28800A3B912 /* AppDelegate.swift */,
 				3321CB631B29D28800A3B912 /* ViewController.swift */,
 				3321CB651B29D28800A3B912 /* Main.storyboard */,
-				3321CB6B1B29D28800A3B912 /* Assets.xcassets */,
+				3374704E1B2A25CD0007D2C4 /* Assets.xcassets */,
 				3321CB6D1B29D28800A3B912 /* LaunchScreen.storyboard */,
 				3321CB701B29D28800A3B912 /* Info.plist */,
 				3321CB681B29D28800A3B912 /* BlocSpot_2.xcdatamodeld */,
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3321CB6F1B29D28800A3B912 /* LaunchScreen.storyboard in Resources */,
-				3321CB6C1B29D28800A3B912 /* Assets.xcassets in Resources */,
+				3374704F1B2A25CD0007D2C4 /* Assets.xcassets in Resources */,
 				3321CB671B29D28800A3B912 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +494,7 @@
 				3321CB8B1B29D28800A3B912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3321CB8C1B29D28800A3B912 /* Build configuration list for PBXNativeTarget "BlocSpot 2Tests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +503,7 @@
 				3321CB8E1B29D28800A3B912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3321CB8F1B29D28800A3B912 /* Build configuration list for PBXNativeTarget "BlocSpot 2UITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +512,7 @@
 				3321CB911B29D28800A3B912 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
