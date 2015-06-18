@@ -9,43 +9,110 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController,UISearchBarDelegate {
+class ViewController: UIViewController,UISearchBarDelegate,UITableViewDataSource {
     
+    
+    
+    var array : [MKMapItem!] = []
+    
+    //MARK: UITableViewDataSource
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return array.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return "Search Results"
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        if(indexPath.section == 0){
+            
+            for item in self.array {
+
+                cell.textLabel?.text =  self.array[indexPath.row].name
+                cell.detailTextLabel?.text = self.array[indexPath.row].phoneNumber
+                
+                print(item)
+            }
+            
+        } else {
+            cell.detailTextLabel?.text = "Paul Lozada"
+        }
+        
+        return cell
+        
+    }
     
     //MARK: Temporary Storage
     
     //Will implement CoreData as permanent data persistence in the future
     
     var searchResult : String? = nil
-    
     let searchRequest = MKLocalSearchRequest()
-
+    var persistedResults = [String]()
+    var callBack = [String]()
+    
+    @IBOutlet var tableView: UITableView!
     
     
     //MARK: UISearchBarDelegate
     
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        
+        tableView.hidden = false
+    }
+    
     func searchBarBookmarkButtonClicked(searchBar: UISearchBar) {
         print("Bookmark button pressed")
+        tableView.reloadData()
     }
    
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
-        
+        tableView.hidden = true
         searchBar.endEditing(true)
-        
-        print("Cancelled Search")
-        
+
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         let localSearch = MKLocalSearch(request: searchRequest)
+//        let latitude : CLLocationDegrees = 50.0
+        
+//        let longitude : CLLocationDegrees =  40.0
+        
+        let mapRectange = MKMapRectMake(400, 400, 400, 400)
+        searchRequest.region = MKCoordinateRegionForMapRect(mapRectange)
         searchRequest.naturalLanguageQuery = searchResult
         
+        
+        persistedResults.append(searchRequest.naturalLanguageQuery!)
+        
+        print(persistedResults)
+        
         localSearch.startWithCompletionHandler { (response, error) -> Void in
+
             
             if response != nil{
-                print(response)
+                
+                    self.array = (response?.mapItems)!
+                
+              
+                
+                   self.tableView.reloadData()
+                
+                print(self.array)
+                
             } else{
                 
                 let alert = UIAlertController(title: "No Results Found", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
@@ -61,8 +128,6 @@ class ViewController: UIViewController,UISearchBarDelegate {
         
         
         
-        print(searchResult!)
-        print("Search Button Clicked")
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
@@ -101,23 +166,32 @@ class ViewController: UIViewController,UISearchBarDelegate {
         print(segmented.selectedSegmentIndex)
     }
     
-    
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
+        // SearchBar
         segmented.tintColor = UIColor(red: 0.175, green: 0.727, blue: 0.831, alpha: 1)
-      
-        
         searchBar.placeholder = "Type Search here"
         searchBar.prompt = "BlocSpot"
         searchBar.tintColor = UIColor(red: 0.175, green: 0.727, blue: 0.831, alpha: 1)
         searchBar.delegate = self
         searchBar.showsBookmarkButton = true
         searchBar.showsCancelButton = true
+        searchBar.translucent = true
+        searchBar.searchBarStyle = UISearchBarStyle.Prominent
+        
+        // MapRegion
+        let latitude : CLLocationDegrees = 50.999150
+        let longitude : CLLocationDegrees = -114.072579
+        let centerCoordinate = CLLocationCoordinate2DMake(latitude, longitude)
+        let latitudinalMeters : CLLocationDistance = 3000.0
+        let longitudeMeters: CLLocationDistance = 3000.0
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(centerCoordinate, latitudinalMeters, longitudeMeters)
+        mainMapView.setRegion(coordinateRegion, animated: true)
         
         
-        
+
         
         // Do any additional setup after loading the view, typically from a nib.
     }
